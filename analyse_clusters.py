@@ -75,7 +75,8 @@ del lib_all
 
 
 
-# delete the lib clusters if comp = 0.0 means the cluster with intrinsic luminosity L' observed in the same manner as observed cluster i will not be included in sample
+# delete the lib clusters if comp = 0.0 means the cluster with intrinsic luminosity L' observed 
+# in the same manner as observed cluster i will not be included in sample
 ncl_init = len(actual_mass)
 keep = np.where(comp>0)
 
