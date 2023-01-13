@@ -6,7 +6,7 @@
 
 2. Include Dan Foreman-Mackey's emcee package from https://github.com/dfm/emcee.
 
-3. Git pull the cluster library from [INSERT HYPERLINK OF CLUSTER_SLUG LIBRARY HERE].
+3. The library files needed for the analysis can be obtained upon request from the corresponding author. Due to limited space, they will be provided in a compressed file format (tarball of approximately 64GB).
 
 ## Repository Workflow:
 
