@@ -1,0 +1,157 @@
+
+########################################################################
+# Template parameter file to generate v2.0 of the LEGUS/SLUG libraries #
+########################################################################
+
+##############
+# Basic data #
+##############
+
+# Name of the model; this will become the base name for all output
+# files
+# Default: SLUG_DEF
+model_name     $MODEL_NAME$
+
+# Directory into which to write output
+# Default: output
+out_dir     $OUT_DIR$
+
+# Level of verbosity while running; allowed values:
+# -- 0 (run silently except for runtime warnings and errors)
+# -- 1 (some basic output)
+# -- 2 (lots of output)
+# Default: 1
+verbosity        1
+
+
+##################################################################
+# Parameters controlling simulation execution and physical model #
+##################################################################
+
+# Type of simulation.
+sim_type  	  cluster
+
+# Number of models to run
+n_trials       10000000
+
+# Length of time step in yr, or name of a PDF file for a
+# randomly-generated output time
+# $SLUG_DIR$ is the path where you installed SLUG, 
+# for simplicity run 'export SLUG_DIR = /path/to/slug/' to set the enviroment variable. 
+# lib_time.pdf, lib_mass.pdf and lib_av.pdf can be found in the cluster_slug directory. 
+time_step      $SLUG_DIR$/cluster_slug/lib_time.pdf
+
+# Starting time (in yr)
+start_time        1.0e5
+
+# Maximum evolution time, in yr.
+end_time	  1.5e10
+
+# Cluster mass (or "cmf" for a randomly chosen mass)
+cluster_mass      cmf
+
+
+#############################################
+# Parameters controlling simulation outputs #
+#############################################
+
+# Write out cluster physical properties?
+out_cluster       1
+
+# Write out cluster photometry?
+out_cluster_phot  1
+
+# Write out cluster spectra?
+out_cluster_spec    0
+
+# Write out cluster yields?
+out_cluster_yield   0
+
+# Write out cluster SNe
+out_cluster_sn      0
+
+# Write output as binary, ASCII, or FITS; allowed values:
+output_mode      fits
+
+
+#####################################################################
+# Parameters controlling the physical models used for star and star #
+# cluster formation, and stellar properties
+#####################################################################
+
+# IMF (initial mass function) file name
+imf            $SLUG_DIR$/lib/imf/chabrier.imf
+
+# CMF (cluster mass function) file name
+cmf           $SLUG_DIR$/cluster_slug/lib_mass.pdf
+
+# CLF (cluster lifetime function) file name
+clf               $SLUG_DIR$/lib/clf/nodisrupt.clf
+
+# Stellar tracks to use
+tracks         mist_2016_vvcrit_40
+
+# Directory containing stellar atmosphere models
+atmospheres 	  $SLUG_DIR$/lib/atmospheres
+
+# Spectral synthesis mode
+specsyn_mode	   sb99
+
+# Metallicity relative to Solar (default = 1.0)
+metallicity      1.000000
+
+#####################################################################
+# Parameters controlling extinction                                 #
+#####################################################################
+
+# Extinction
+A_V            $SLUG_DIR$/lib_av.pdf
+
+# File specifying the shape fof the extinction curve
+extinction_curve $SLUG_DIR$/lib/extinct/MW_EXT_SLUG.dat
+
+# Ratio of nebular to stellar extinction
+nebular_extinction_factor     $SLUG_DIR$/lib/avdist/neb_factor_default.av
+
+
+#####################################################################
+# Parameters controlling the nebular emission                       #
+#####################################################################
+
+# Compute nebular emission or not
+compute_nebular      1
+
+# Fraction of ionizing photons assumed to absorbed by H instead of
+# dust inside HII regions
+nebular_phi      0.500000
+
+#############################################
+# Parameters describing photometric filters #
+#############################################
+
+# All these parameters can be omitted if no photometric output is
+# requested, i.e. if out_integrated_phot = 0 and out_cluster_phot = 0
+# (see below).
+
+# Photometric filters to be used; can be comma- or
+# whitespace-separated. For a list of available filters, see the file
+# lib/filters/FILTER_LIST. In addition to those filters, the following
+# special values are always available:
+# -- QH0 : H ionizing photon luminosity, in phot/s
+# -- QHe0 : He ionizing photon luminosity, in phot/s
+# -- QHe1 : He+ ionizing photon luminosity, in phot/s
+# -- Lbol : bolometric luminosity, in L_sun
+phot_bands      WFC3_UVIS_F275W, WFC3_UVIS_F336W, WFC3_UVIS_F438W, WFC3_UVIS_F555W, WFC3_UVIS_F814W, ACS_F435W, ACS_F555W, ACS_F606W, ACS_F814W, WFC3_UVIS_F657N, WFC3_UVIS_F547M, ACS_F658N, ACS_F660N, QH0, Lbol, Johnson_U, Johnson_B, Johnson_V, Cousins_R, Cousins_I
+
+# Directory containing photometric filter data
+# Default: lib/filters
+filters	           $SLUG_DIR$/lib/filters
+
+# Photometry mode; allowed values are
+# -- L_nu (report frequency-averaged luminosity in band, in erg/s/Hz)
+# -- L_lambda (report wavelength-averaged luminosity in band, in erg/s/A)
+# -- AB (report absolute AB magnitude)
+# -- STMAG (report absolute ST magnitude)
+# -- VEGA (report absolute Vega magnitude)
+# Default: L_nu
+phot_mode          VEGA
