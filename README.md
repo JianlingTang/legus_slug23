@@ -1,4 +1,7 @@
-### The SLUG Bayesian Modelling of LEGUS Cluster Demographics Pipeline (2023)
+### SLUG Pipeline for Bayesian Modeling of LEGUS Star Cluster Catalog (v2024)
+
+## Introduction 
+This repository provides the open-source code for the SLUG Bayesian Modelling pipeline, as described in [Tang et al. 2024](https://academic.oup.com/mnras/article/532/4/4583/7720539). Designed for LEGUS survey data, this pipeline uses Bayesian methods to model cluster demographics, infer physical properties, and incorporate uncertainties. Suitable for a range of extragalactic cluster studies. [Comments and collaborations are welcome](mailto:janet.tang@anu.edu.au)
 
 ## Dependencies 
 
