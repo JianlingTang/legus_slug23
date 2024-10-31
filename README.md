@@ -10,7 +10,7 @@
 
 ## Repository Workflow:
 
-1. Download the cluster catalog files from public data. The NGC 628 c and e cluster catalogs are located in the /cluster_catalogs directory.
+1. Download the cluster catalog files from public data. The NGC 628 star cluster catalogs are located in the /cluster_catalogs directory.
 
 2. Run `analyze_catalog_mid_midd.py` by typing `./analyze_catalog_mid_mdd.sh` in the main directory. This will produce the chains resulting from running the MCMC trials. The previous chains returned by running the analyzing scripts are included. The shell scripts contain the absolute paths of each input data file. You'll need to update the paths and filenames according to your own directory names.
 
